@@ -145,7 +145,7 @@
   for (let i = 0; i < 6; i++){ const A = V[i], B = V[(i + 1) % 6]; barra(p3([A[0]*1.01, A[1]*1.01], TOPE - .015), p3([B[0]*1.01, B[1]*1.01], TOPE - .015), .08, .05); }
 
   // estantes rojos de acero con las editoriales A5, contra los tres lados cortos
-  const texTapa = new T.TextureLoader().load("img/editorial-tapa.jpg"); texTapa.encoding = T.sRGBEncoding; texTapa.anisotropy = 8;
+  const texTapa = new T.TextureLoader().load("editorial-tapa.jpg"); texTapa.encoding = T.sRGBEncoding; texTapa.anisotropy = 8;
   const canto2 = M(0xf1f1ee, {roughness:.8});
   const tapaMat = [canto2, canto2, canto2, canto2, new T.MeshStandardMaterial({map:texTapa, roughness:.65, emissive:0xffffff, emissiveMap:texTapa, emissiveIntensity:.18}), canto2];
   const libro = new T.BoxGeometry(.148, .21, .012), LIBROS = [];
@@ -250,8 +250,8 @@
       const lb = new T.Group(); sc.add(lb);
       lb.add(new T.Mesh(new T.BoxGeometry(W - .008, Hh - .008, G - .004), [cantoV, papel, cantoH, cantoH, papel, papel]));
       const tapaGeo = new T.BoxGeometry(W, Hh, .002);
-      const fr = new T.Mesh(tapaGeo, [papel, papel, papel, papel, cara(tx("img/editorial-tapa.jpg")), papel]); fr.position.z = G/2 - .001; lb.add(fr);
-      const bk = new T.Mesh(tapaGeo, [papel, papel, papel, papel, papel, cara(tx("img/editorial-contratapa.jpg"))]); bk.position.z = -G/2 + .001; lb.add(bk);
+      const fr = new T.Mesh(tapaGeo, [papel, papel, papel, papel, cara(tx("editorial-tapa.jpg")), papel]); fr.position.z = G/2 - .001; lb.add(fr);
+      const bk = new T.Mesh(tapaGeo, [papel, papel, papel, papel, papel, cara(tx("editorial-contratapa.jpg"))]); bk.position.z = -G/2 + .001; lb.add(bk);
       const lomo = new T.Mesh(new T.CylinderGeometry(G/2, G/2, Hh, 20, 1, false, Math.PI, Math.PI), papel); lomo.position.x = -W/2; lb.add(lomo);
       lb.children.forEach(o => { o.castShadow = true; });
       ed = {el, r2, sc, c2, lb, t0:0, raf:0, abierto:false};
